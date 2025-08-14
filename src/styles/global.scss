@@ -1,0 +1,88 @@
+/* Colors */
+$clr-neutral-100: #fff;
+$clr-neutral-200: #929292;
+$clr-neutral-300: #000;
+
+$clr-primary-100: #fb3e5a;
+$clr-primary-200: #5e9387;
+$clr-primary-300: #fbf8ef;
+
+.clr-primary-200 {
+    color: $clr-primary-200;
+}
+
+/* Fonts */
+$ff-primary: 'Montserrat', sans-serif;
+$ff-secondary: 'Meticula', sans-serif;
+
+$fw-light: 200;
+$fw-medium: 400;
+$fw-bold: 500;
+$fw-black: 700;
+
+$fs-100: 12px;
+$fs-200: 14px;
+$fs-300: 16px;
+$fs-400: 20px;
+$fs-450: 30px;
+$fs-500: 40px;
+$fs-600: 70px;
+$fs-700: 80px;
+$fs-800: 90px;
+$fs-900: 250px;
+
+.ff-primary {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ff-secondary {
+    font-family: 'Meticula', sans-serif;
+    font-weight: $fw-light;
+}
+
+// Box sizing rules
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+// Remove default margin and text formatting from the h's 
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+// Remove list styles 
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+// Set core root defaults
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+// Set core body defaults
+body {
+    background-color: $clr-primary-300;
+    font-family: $ff-primary;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    margin: 0;
+}
+
+// For elements that don't have a class to a have a default setting 
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+// Make images easier to work with 
+img,
+picture,
+svg {
+    display: block;
+    max-width: 100%;
+}

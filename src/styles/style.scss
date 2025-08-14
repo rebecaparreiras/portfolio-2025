@@ -1,0 +1,985 @@
+@use './global' as *;
+@use './mixins' as *;
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Meticula';
+  src: url('/fonts/meticula-outline.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ------ */
+/* Navbar */
+/* ------ */
+.primary-header {
+    position: fixed;
+    background-color: transparent;
+    z-index: 99;
+  
+    .nav-wrapper {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 3rem;
+        z-index: 10;
+    
+        a {
+            @include font-style($ff-primary, $fw-bold, $fs-450, $clr-neutral-300);
+            text-decoration: none;
+            line-height: 1.5rem;
+            z-index: 20;
+        }
+
+        a:hover {
+            @include font-style($ff-primary, $fw-bold, $fs-450, $clr-primary-100);
+        }
+    }
+    
+    .nav-logo {
+        img {
+            width: 120px;
+        }
+    }
+    
+    .nav-social {
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }  
+} 
+
+@media (max-height: 900px) {
+    .primary-header {
+        .nav-wrapper {
+            a {
+                @include font-style($ff-primary, $fw-bold, $fs-400, $clr-neutral-300);
+            }
+    
+            a:hover {
+                @include font-style($ff-primary, $fw-bold, $fs-400, $clr-primary-100);
+            }
+        }
+        
+        .nav-logo {
+            img {
+                width: 90px;
+            }
+        }
+        
+        .nav-social {
+            ul {
+                gap: 0.5rem;
+            }
+        }  
+    } 
+}
+
+@media (max-width: 850px) {
+    .primary-header {
+        .nav-wrapper {
+            height: 0;
+            width: 100vw;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6rem 3rem;
+
+            a {
+                @include font-style($ff-primary, $fw-bold, $fs-400, $clr-neutral-300);
+                text-decoration: none;
+                z-index: 20;
+            }
+    
+            a:hover {
+                @include font-style($ff-primary, $fw-bold, $fs-400, $clr-primary-100);
+            }
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 90px;
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .primary-header {
+        .nav-wrapper {
+            padding: 3.5rem 2rem;
+
+            .nav-logo {
+                img {
+                    width: 50px;
+                }
+            }
+
+            .nav-social {
+                ul {
+                    gap: 0;
+                }
+            }  
+
+            a {
+                @include font-style($ff-primary, $fw-bold, $fs-200, $clr-neutral-300);
+            }
+    
+            a:hover {
+                @include font-style($ff-primary, $fw-bold, $fs-200, $clr-primary-100);
+            }
+        }
+    }
+}
+
+
+/* --------- */
+/* All pages */
+/* --------- */
+.pages-container {
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    
+    .page {
+        width: 100%;
+        height: 100vh;
+        scroll-snap-align: start;
+        -ms-overflow-style: none;  /* hide scrollbar IE and Edge */
+        scrollbar-width: none;     /* hide scrollbar Firefox */
+    }
+    
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .slider::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+
+/* ------------------ */
+/* Slider lateral nav */
+/* ------------------ */
+.slider-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: absolute;
+    bottom: 50%;
+    right: 4rem;
+    transform: translateY(50%);
+  
+    a {
+        width: 4rem;
+        height: 0.75rem;
+        border: solid 1px $clr-neutral-300;
+        background-color: transparent;
+        opacity: 0.5;
+        transition: opacity ease 250ms;
+    
+        &.active {
+            background-color: $clr-primary-100;
+            border: solid 1px $clr-primary-100;
+            opacity: 1;
+        }
+    }
+}
+  
+
+/* ------ */
+/* Page 1 */
+/* ------ */
+.page-1 {
+    background-color: $clr-primary-300;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10rem;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 5vh 15vw;
+  
+    .intro-text {
+        grid-column: span 2;
+
+        h1 {
+            @include font-style($ff-primary, $fw-black, $fs-600, $clr-primary-100);
+            line-height: 1.1;
+        }
+
+        h3 {
+            @include font-style($ff-primary, $fw-bold, clamp(1.2rem, 2vw, 2.5rem), $clr-neutral-300);
+            line-height: 2.5rem;
+            margin-top: 3rem;
+            padding-right: 10rem;
+        }
+    }
+
+    .stacks {
+        grid-column: span 1;
+
+        .stacks-btn {
+            button {
+                @include button(transparent, 1px solid $clr-primary-200, 20px, $clr-primary-200, $fs-400, 0.2rem 0.5rem, $margin-top: 0.5rem);
+            }
+        }
+    }
+}
+  
+
+/* ------ */
+/* Page 2 */
+/* ------ */
+.page-2 {
+    height: auto;
+    min-height: 100vh;
+    padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  
+    .projects-title {
+        @include font-style($ff-secondary, $fw-light, $fs-800, $clr-primary-200);
+        text-transform: uppercase;
+        margin-bottom: -2rem;
+    }
+  
+    .projects-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        a {
+            color: $clr-primary-100;
+        }
+
+        p {
+            @include font-style($ff-primary, $fw-bold, $fs-400, $clr-neutral-300);
+        }
+
+        button {
+            @include button(transparent, 1px solid $clr-neutral-300, 20px, $clr-neutral-300, $fs-300, 0.1rem 0.55rem);
+        }
+    }
+}
+
+/* Project Card */
+.page-2 {
+    /* Container */
+    :where(.projects-container, .projects-carousel) {
+        width: min(500px, 92vw);
+        margin-inline: auto;
+    }
+
+    /* Card */
+    :where(.projects-container, .projects-carousel) .project {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 500px;
+        padding: 2rem;
+        background-color: $clr-primary-300;
+        border: 1px solid $clr-primary-100;
+
+        h3 {
+            @include font-style($ff-primary, $fw-bold, $fs-450, $clr-primary-100);
+            text-align: center;
+        }
+
+        p {
+            @include font-style($ff-primary, $fw-medium, $fs-200, $clr-neutral-300);
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .project-details {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+
+            .project-stacks {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+                margin-top: 0.5rem;
+
+                button {
+                @include button(transparent, 1px solid $clr-primary-100, 20px, $clr-primary-100, $fs-300, 0.1rem 0.55rem);
+                }
+            }
+
+            a {
+                @include font-style($ff-primary, $fw-medium, $fs-600, $clr-primary-100);
+                text-decoration: none;
+            }
+        }
+    }
+
+
+    /* Fade-out text + toggle */
+
+    /* Button's text accessibility */
+    .sr-only {
+        position: absolute; 
+        width: 1px; 
+        height: 1px; 
+        padding: 0; 
+        margin: -1px;
+        overflow: hidden; 
+        clip: rect(0,0,0,0); 
+        white-space: nowrap; 
+        border: 0;
+    }
+
+    /* Clamp (2 lines) + fade & toggle */
+    .page-2 :where(.projects-container, .projects-carousel) .project .project-info {
+        .project-desc {
+            line-height: 1.5;   
+            margin: 0;
+            text-align: center;
+        }
+
+        .desc-wrap .desc-fade-vert {
+            content: '';
+            position: absolute;
+            left: 0; right: 0;
+            bottom: 0;
+            height: 1.5em;                
+            background: linear-gradient(
+                180deg,
+                rgba($clr-primary-300, 0) 0%,
+                $clr-primary-300 80%
+            );
+            pointer-events: none;         
+            display: block;
+            z-index: 0;
+        }
+
+        /* Button */
+        .desc-toggle {
+            @include button(transparent, 1px solid $clr-primary-100, 999px, $clr-primary-100, $fs-300, 0);
+            width: 2rem; 
+            height: 2rem;
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center;
+            margin-top: 0.75rem; 
+            user-select: none;
+            cursor: pointer;  
+
+            &[aria-expanded="true"] {
+                border-color: $clr-neutral-300;
+                color: $clr-neutral-300;
+            }
+        }
+    }
+
+
+    /* Media queries */
+    @media (max-width: 700px) {
+        .page-2 :where(.projects-container, .projects-carousel) .project .project-info .project-desc::after {
+            width: 50%;
+        }
+    }
+
+
+    /* Swiper */
+    .projects-carousel .swiper {
+        padding-bottom: 3rem; 
+    }
+
+    .projects-carousel .swiper-slide {
+        display: flex;      
+        align-items: stretch;
+    }
+
+    /* Navigation */
+    .projects-carousel .swiper-button-prev,
+    .projects-carousel .swiper-button-next {
+        color: $clr-primary-100;
+    }
+
+    /* Pagination */
+    .projects-carousel .swiper-pagination-bullet {
+        background: $clr-neutral-300;
+        opacity: .4;
+    }
+    .projects-carousel .swiper-pagination-bullet-active {
+        background: $clr-primary-100;
+        opacity: 1;
+    }
+}
+
+
+/* ------------- */
+/*     Page 2    */ 
+/* Media queries */ 
+/* ------------- */
+
+/* max-width: 850px */
+@media (max-width: 850px) {
+    .page-2 {
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 2rem;
+        gap: 2rem;
+    
+        .projects-title {
+            @include font-style($ff-secondary, $fw-light, $fs-500, $clr-primary-200);
+        }
+    
+        .projects-info {
+            a {
+                color: $clr-primary-100;
+            }
+
+            p {
+                @include font-style($ff-primary, $fw-bold, $fs-300, $clr-neutral-300);
+            }
+
+            button {
+                @include button(transparent, 1px solid $clr-neutral-300, 20px, $clr-neutral-300, $fs-200, 0.1rem 0.55rem);
+            }
+        }
+    }
+
+    /* Project Card */
+    .page-2 {
+        /* Container */
+        :where(.projects-container, .projects-carousel) {
+            width: min(450px, 92vw);
+            margin-inline: auto;
+        }
+
+        /* Card */
+        :where(.projects-container, .projects-carousel) .project {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 500px;
+            padding: 2rem;
+            background-color: $clr-primary-300;
+            border: 1px solid $clr-primary-100;
+
+            h3 {
+                @include font-style($ff-primary, $fw-bold, $fs-450, $clr-primary-100);
+                text-align: center;
+            }
+
+            p {
+                @include font-style($ff-primary, $fw-medium, $fs-200, $clr-neutral-300);
+                margin-top: 1rem;
+                text-align: center;
+            }
+
+            .project-details {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
+
+                .project-stacks {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-top: 0.5rem;
+
+                    button {
+                    @include button(transparent, 1px solid $clr-primary-100, 20px, $clr-primary-100, $fs-300, 0.1rem 0.55rem);
+                    }
+                }
+
+                a {
+                    @include font-style($ff-primary, $fw-medium, $fs-600, $clr-primary-100);
+                    text-decoration: none;
+                }
+            }
+        }
+
+
+        /* Fade-out text + toggle */
+
+        /* Button's text accessibility */
+        .sr-only {
+            position: absolute; 
+            width: 1px; 
+            height: 1px; 
+            padding: 0; 
+            margin: -1px;
+            overflow: hidden; 
+            clip: rect(0,0,0,0); 
+            white-space: nowrap; 
+            border: 0;
+        }
+
+        /* Clamp (2 lines) + fade & toggle */
+        .page-2 :where(.projects-container, .projects-carousel) .project .project-info {
+            .project-desc {
+                line-height: 1.5;   
+                margin: 0;
+                text-align: center;
+            }
+
+            .desc-wrap .desc-fade-vert {
+                content: '';
+                position: absolute;
+                left: 0; right: 0;
+                bottom: 0;
+                height: 1.5em;                
+                background: linear-gradient(
+                    180deg,
+                    rgba($clr-primary-300, 0) 0%,
+                    $clr-primary-300 80%
+                );
+                pointer-events: none;         
+                display: block;
+                z-index: 0;
+            }
+
+            /* Button */
+            .desc-toggle {
+                @include button(transparent, 1px solid $clr-primary-100, 999px, $clr-primary-100, $fs-300, 0);
+                width: 2rem; 
+                height: 2rem;
+                display: inline-flex; 
+                align-items: center; 
+                justify-content: center;
+                margin-top: 0.75rem; 
+                user-select: none;
+                cursor: pointer;  
+
+                &[aria-expanded="true"] {
+                    border-color: $clr-neutral-300;
+                    color: $clr-neutral-300;
+                }
+            }
+        }
+
+
+        /* Swiper */
+        .projects-carousel .swiper {
+            padding-bottom: 3rem; 
+        }
+
+        .projects-carousel .swiper-slide {
+            display: flex;      
+            align-items: stretch;
+        }
+
+        /* Navigation */
+        .projects-carousel .swiper-button-prev,
+        .projects-carousel .swiper-button-next {
+            color: $clr-primary-100;
+        }
+
+        /* Pagination */
+        .projects-carousel .swiper-pagination-bullet {
+            background: $clr-neutral-300;
+            opacity: .4;
+        }
+        .projects-carousel .swiper-pagination-bullet-active {
+            background: $clr-primary-100;
+            opacity: 1;
+        }
+    }
+}
+
+
+/* max-width: 780px */
+@media (max-width: 780px) {
+    /* Project Card */
+    .page-2 {
+        /* Container */
+        :where(.projects-container, .projects-carousel) {
+            width: min(350px, 92vw);
+        }
+    }
+}
+
+
+/* max-width: 600px */
+@media (max-width: 600px) {
+    .page-2 {
+        padding-bottom: 0;
+        gap: 1rem;
+    
+        .projects-title {
+            @include font-style($ff-secondary, $fw-light, $fs-450, $clr-primary-200);
+        }
+    
+        .projects-info {
+            a {
+                color: $clr-primary-100;
+            }
+
+            p {
+                @include font-style($ff-primary, $fw-bold, $fs-100, $clr-neutral-300);
+            }
+
+            button {
+                @include button(transparent, 1px solid $clr-neutral-300, 20px, $clr-neutral-300, $fs-100, 0.1rem 0.55rem);
+                margin-left: 0.25rem;
+            }
+        }
+    }
+
+    /* Project Card */
+    .page-2 {
+        /* Container */
+        :where(.projects-container, .projects-carousel) {
+            width: min(280px, 92vw);
+            margin-inline: auto;
+        }
+
+        /* Card */
+        :where(.projects-container, .projects-carousel) .project {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 300px;
+            padding: 1rem;
+
+            h3 {
+                @include font-style($ff-primary, $fw-bold, $fs-400, $clr-primary-100);
+                text-align: center;
+            }
+
+            p {
+                @include font-style($ff-primary, $fw-medium, $fs-100, $clr-neutral-300);
+                margin-top: 1rem;
+                text-align: center;
+            }
+
+            .project-details {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
+
+                .project-stacks {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0.1rem;
+                    margin-top: 0;
+
+                    button {
+                        @include button(transparent, 1px solid $clr-primary-100, 20px, $clr-primary-100, $fs-200, 0.1rem 0.55rem);
+                    }
+                }
+
+                a {
+                    @include font-style($ff-primary, $fw-medium, $fs-500, $clr-primary-100);
+                }
+            }
+        }
+
+
+        /* Fade-out text + toggle */
+
+        /* Button's text accessibility */
+        .sr-only {
+            position: absolute; 
+            width: 1px; 
+            height: 1px; 
+            padding: 0; 
+            margin: -1px;
+            overflow: hidden; 
+            clip: rect(0,0,0,0); 
+            white-space: nowrap; 
+            border: 0;
+        }
+
+        /* Clamp (2 lines) + fade & toggle */
+        .page-2 :where(.projects-container, .projects-carousel) .project .project-info {
+            .project-desc {
+                line-height: 1.5;   
+                margin: 0;
+                text-align: center;
+            }
+
+            .desc-wrap .desc-fade-vert {
+                content: '';
+                position: absolute;
+                left: 0; right: 0;
+                bottom: 0;
+                height: 1.5em;                
+                background: linear-gradient(
+                    180deg,
+                    rgba($clr-primary-300, 0) 0%,
+                    $clr-primary-300 80%
+                );
+                pointer-events: none;         
+                display: block;
+                z-index: 0;
+            }
+
+            /* Button */
+            .desc-toggle {
+                @include button(transparent, 1px solid $clr-primary-100, 999px, $clr-primary-100, $fs-300, 0);
+                width: 2rem; 
+                height: 2rem;
+                display: inline-flex; 
+                align-items: center; 
+                justify-content: center;
+                margin-top: 0.75rem; 
+                user-select: none;
+                cursor: pointer;  
+
+                &[aria-expanded="true"] {
+                    border-color: $clr-neutral-300;
+                    color: $clr-neutral-300;
+                }
+            }
+        }
+
+
+        /* Swiper */
+        .projects-carousel .swiper {
+            padding-bottom: 3rem; 
+        }
+
+        .projects-carousel .swiper-slide {
+            display: flex;      
+            align-items: stretch;
+        }
+
+        /* Navigation */
+        .projects-carousel .swiper-button-prev,
+        .projects-carousel .swiper-button-next {
+            color: $clr-primary-100;
+        }
+
+        /* Pagination */
+        .projects-carousel .swiper-pagination-bullet {
+            background: $clr-neutral-300;
+            opacity: .4;
+        }
+        .projects-carousel .swiper-pagination-bullet-active {
+            background: $clr-primary-100;
+            opacity: 1;
+        }
+    }
+}
+
+
+
+
+/* ------------- */
+/* Media queries */ 
+/* ------------- */
+@media (max-width: 1350px) {
+    // Page 1
+    .page-1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10rem;
+      
+        .intro-text {
+            h1 {
+                @include font-style($ff-primary, $fw-black, $fs-500, $clr-primary-100);
+                text-align: center;
+            }
+    
+            h3 {
+                padding: 0 5rem;
+                text-align: center;
+            }
+        }
+    
+        .stacks {
+            .stacks-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin-top: -7rem;
+
+                button {
+                    @include button(transparent, 1px solid $clr-primary-200, 20px, $clr-primary-200, $fs-300, 0.2rem 0.5rem, $margin-top: 0.5rem);
+                }
+            }
+        }
+    }   
+}
+
+@media (max-height: 1100px) {
+    // Page 1
+    .page-1 {
+        gap: 2rem;
+    }
+
+    .page-2 { 
+        gap: 3rem; 
+    }
+
+    .page-2 .projects-title {
+        @include font-style($ff-secondary, $fw-light, $fs-500, $clr-primary-200);
+    }
+
+    .page-2 .projects-container {
+        width: 92vw;
+        grid-template-columns: 1fr;   
+        grid-template-rows: none;     
+        gap: 0.75rem;
+    }
+
+    .page-2 .projects-container .project {
+        padding: 1.25rem;
+        gap: 0.75rem;
+
+        h3 { 
+            @include font-style($ff-primary, $fw-bold, $fs-400, $clr-primary-100); 
+        }
+        p  { 
+            @include font-style($ff-primary, $fw-medium, $fs-200, $clr-primary-100); 
+        }
+
+        .project-details {
+            flex-direction: column;
+            gap: 0.5rem;
+
+        a { 
+            @include font-style($ff-primary, $fw-medium, $fs-500, $clr-primary-100); 
+        }
+
+        .project-stacks {
+            gap: 0.3rem;
+
+            button {
+                @include button(transparent, 1px solid $clr-primary-100, 20px, $clr-primary-100, $fs-200, 0.1rem 0.45rem);
+            }
+        }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    // Slider Nav
+    .slider-nav {
+        right: 2rem;
+      
+        a {
+            width: 1rem;
+            height: 1rem;
+        }
+    }
+
+
+    // Page 1
+    .page-1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10rem;
+      
+        .intro-text {
+            h1 {
+                @include font-style($ff-primary, $fw-black, $fs-500, $clr-primary-100);
+                text-align: center;
+            }
+    
+            h3 {
+                padding: 0 5rem;
+                text-align: center;
+            }
+        }
+    
+        .stacks {
+            .stacks-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin-top: -5rem;
+
+                button {
+                    @include button(transparent, 1px solid $clr-primary-200, 20px, $clr-primary-200, $fs-300, 0.2rem 0.5rem, $margin-top: 0.5rem);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    // Slider Nav
+    .slider-nav {
+        right: 0.75rem;
+      
+        a {
+            width: 0.5rem;
+            height: 0.5rem;
+        }
+    }
+
+    // Page 1
+    .page-1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10rem;
+      
+        .intro-text {
+            h1 {
+                @include font-style($ff-primary, $fw-black, $fs-450, $clr-primary-100);
+                text-align: center;
+            }
+    
+            h3 {
+                @include font-style($ff-primary, $fw-bold, $fs-300, $clr-neutral-300);
+                padding: 0;
+                line-height: 1.5rem;
+                text-align: center;
+            }
+        }
+    
+        .stacks {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .stacks-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 0.2rem;
+                margin-top: -7.5rem;
+
+                button {
+                    @include button(transparent, 1px solid $clr-primary-200, 20px, $clr-primary-200, $fs-100, 0.2rem 0.5rem, $margin-top: 0.5rem);
+                }
+            }
+        }
+    }
+}
