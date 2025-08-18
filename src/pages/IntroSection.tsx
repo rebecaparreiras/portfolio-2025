@@ -11,7 +11,7 @@ const IntroSection = () => {
 
         <div className="info-text">
           <h3>
-            <span>&lt;</span>Especializada em criar projetos que unem lógica e estética<span> /&gt;</span>
+            <span>&lt;/</span>Especializada em criar projetos que unem lógica e estética<span>&gt;</span>
           </h3>
         </div>
       </div>

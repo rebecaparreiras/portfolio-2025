@@ -679,7 +679,7 @@
 
             p {
                 @include font-style($ff-primary, $fw-medium, $fs-100, $clr-neutral-300);
-                margin-top: 1rem;
+                margin-top: 0.5rem;
                 text-align: center;
             }
 
@@ -751,8 +751,8 @@
             /* Button */
             .desc-toggle {
                 @include button(transparent, 1px solid $clr-primary-100, 999px, $clr-primary-100, $fs-300, 0);
-                width: 2rem; 
-                height: 2rem;
+                width: 1rem; 
+                height: 1rem;
                 display: inline-flex; 
                 align-items: center; 
                 justify-content: center;
