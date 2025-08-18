@@ -3,7 +3,7 @@
 Site portfólio contendo os meus principais projetos focados no Desenvolvimento Front-End. 
 
 <p align="center">
-  <img src="./public/images/capa.PNG" alt="Demonstração do site">
+  <img src="./public/images/portfolio-gif.gif" alt="Demonstração do site">
 </p>
 
 ## ReactJS 
