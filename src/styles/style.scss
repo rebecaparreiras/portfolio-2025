@@ -440,8 +440,8 @@
 /* Media queries */ 
 /* ------------- */
 
-/* max-width: 850px */
-@media (max-width: 850px) {
+/* max-width: 1100px */
+@media (max-width: 1100px) {
     .page-2 {
         height: auto;
         min-height: 100vh;
@@ -449,7 +449,7 @@
         gap: 2rem;
     
         .projects-title {
-            @include font-style($ff-secondary, $fw-light, $fs-500, $clr-primary-200);
+            @include font-style($ff-secondary, $fw-light, $fs-600, $clr-primary-200);
         }
     
         .projects-info {
