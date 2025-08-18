@@ -6,6 +6,8 @@ Site portfólio contendo os meus principais projetos focados no Desenvolvimento 
   <img src="./public/images/portfolio-gif.gif" alt="Demonstração do site">
 </p>
 
+<br>
+
 ## ReactJS 
 O site foi construído utilizando ReactJS + TypeScript no ambiente Vite. Dividido nos componentes Header.tsx, ProjectCard.tsx, ProjectsCarousel.tsx e SliderNav.tsx, e nas páginas IntroSection.tsx e ProjectsSection.tsx. 
 
@@ -78,4 +80,5 @@ Para cada item do array 'projects':
   <li>Kern Studio | <a href="https://github.com/rebecaparreiras/kern-studio">GitHub</a> | <a href="https://kernstudio.com.br/gallery">Deploy</a></li>
   <li>English Tutoring | <a href="https://github.com/rebecaparreiras/english-tutoring">GitHub</a> | <a href="https://english-tutoring-production.up.railway.app">Deploy</a></li>
 </ul>
+
 
