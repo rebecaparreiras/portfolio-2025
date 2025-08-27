@@ -10,13 +10,11 @@ Site portfólio contendo os meus principais projetos focados no Desenvolvimento 
 
 ## ReactJS 
 O site foi construído utilizando ReactJS + TypeScript no ambiente Vite. Dividido nos componentes Header.tsx, ProjectCard.tsx, ProjectsCarousel.tsx e SliderNav.tsx, e nas páginas IntroSection.tsx e ProjectsSection.tsx. 
-
-<br>
+<br><br>
 
 ## SASS
 Foi uma oportunidade rápida e simples de testar pela primeira vez e aprender sobre SASS. Após entender todos os conceitos e colocar em prática, percebi que SASS é mais funcional para projetos e equipes maiores que precisam de padrões consistentes ou com design system grande. Para este projeto, CSS Modules ou Tailwind seriam mais do que ideais, já que o passo extra de build para o SASS não compensa. Ainda assim, pude aproveitar a oportunidade para aprender uma nova tecnologia.
-
-<br>
+<br><br>
 
 ## SliderNav.tsx
 Cria uma <a href="https://github.com/rebecaparreiras/portfolio-2025/blob/main/src/components/SliderNav.tsx">barra de navegação lateral</a> em forma de slider que passa de uma página à outra. Para isso:
@@ -48,7 +46,6 @@ Renderiza uma barra de navegação com links para duas seções:
 <li>#page-2</li>
 </ul>
 O link recebe a classe 'active' se o ID da seção visível for igual ao do link. 
-
 <br><br>
 
 ## ProjectsCarousel.tsx
@@ -65,13 +62,11 @@ Para cada item do array 'projects':
 <li>aria-label="Projects carousel" para descrição;</li>
 <li>aria-label={ Projeto ${p.title} } para descrever o conteúdo;</li>
 </ul>
-
 <br>
 
 ## Tecnologias
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" width="40" height="40"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" width="40" height="40"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" width="40" height="40"/>
-
-<br>
+<br><br>
           
 ## Projetos
 <ul>
@@ -80,5 +75,6 @@ Para cada item do array 'projects':
   <li>Kern Studio | <a href="https://github.com/rebecaparreiras/kern-studio">GitHub</a> | <a href="https://kernstudio.com.br/gallery">Deploy</a></li>
   <li>English Tutoring | <a href="https://github.com/rebecaparreiras/english-tutoring">GitHub</a> | <a href="https://english-tutoring-production.up.railway.app">Deploy</a></li>
 </ul>
+
 
 
