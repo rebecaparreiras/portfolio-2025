@@ -18,7 +18,7 @@ const IntroSection = () => {
 
       <div className="stacks">
         <div className="stacks-btn">
-          {['HTML','CSS','SASS','ReactJS','TypeScript','JavaScript','VueJS','PHP','NodeJS','Express','JSON','Git', 'GitHub','UIX'].map(s => (
+          {['HTML','CSS','SASS','Tailwind','ReactJS','TypeScript','JavaScript','VueJS','APIs REST','PHP','NodeJS','Express','JSON','Git', 'GitHub'].map(s => (
             <button key={s}>{s}</button>
           ))}
         </div>
